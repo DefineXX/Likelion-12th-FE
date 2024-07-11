@@ -1,0 +1,24 @@
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.main-content {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
+
+.click-box {
+  border: 1.5px solid black;
+  margin: 16px;
+  padding: 20px;
+  width: 240px;
+  height: 160px;
+  align-content: center;
+}
+
+.box-title {
+  font-size: 20px;
+  font-weight: bold;
+}

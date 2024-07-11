@@ -1,0 +1,24 @@
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.main-header {
+  display: flex;
+  background-color: rgb(255, 178, 178, 0.5);
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-title {
+  font-family: cc-phat-boi-bold, sans-serif;
+  font-size: 32px;
+  padding: 24px;
+  margin: 0;
+}
+
+.login-btn {
+  font-family: "dynapuff", sans-serif;
+  font-weight: 400;
+  margin: 0 32px;
+}

@@ -1,7 +1,16 @@
-.item-header__title {
-  margin: 16px;
-  padding: 32px;
+.list-container {
+  margin-left: 16px;
+  font-family: "Noto Sans KR", sans-serif;
+  margin: 32px 64px;
+  padding: 8px;
+}
+
+.header__title {
+  display: inline-block;
+  font-weight: 400;
+  font-size: 22px;
   text-align: center;
+  border-bottom: 1px solid black;
 }
 
 .item-list {
@@ -10,14 +19,13 @@
 
 .item-container {
   display: flex;
-  justify-content: center;
   flex-wrap: wrap;
   padding: 0;
 }
 
 .item-box {
   border: 2px solid black;
-  margin: 32px;
+  margin: 16px;
   text-align: center;
   width: 240px;
   height: 160px;
@@ -30,32 +38,124 @@
   font-weight: bold;
 }
 
-.search-box, .register-box {
+.register-box {
   text-align: center;
   margin-top: 36px;
 }
 
+.search-box {
+  margin: 32px 0;
+}
+
 .search-box label,
 .register-box label {
-  margin-right: 8px;
+  font-family: "Titillium Web", sans-serif;
   font-weight: 500;
+  font-size: 18px;
+  margin-right: 8px;
 }
 
 .search-box input,
 .register-box input {
   padding: 4px;
   margin-right: 8px;
+  font-size: 16px;
+}
+
+.search-box input {
+  padding: 4px;
+  border: none;
+  border-bottom: 1px solid rgb(0, 0, 0, 0.5);
+  transition: border-bottom 0.1s ease-in-out;
+}
+
+.search-box input:focus {
+  outline: none;
+  border-bottom: 2px solid rgb(0, 0, 0);
+}
+
+.search-box input::placeholder {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #e16868;
+  font-weight: 500;
+}
+
+.search-box input,
+.search-box button {
+  background-color: transparent;
 }
 
 .search-button,
 .register-box button {
-  padding: 4px 8px;
+  cursor: pointer;
+}
+
+.search-button {
+  border: none;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  position: relative;
+}
+
+.search-button::after {
+  content: "";
+  width: 7px;
+  height: 1.5px;
+  background-color: #000;
+  position: absolute;
+  top: 75%;
+  left: 35%;
+  transform: rotate(45deg);
 }
 
 .search-button:hover {
-  transition: ease 0.8s;  
+  transition: ease 0.8s;
+}
+
+.tb {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 400px;
+  padding: 24px;
+  box-shadow: 0 10px 40px #ff7c7c, 0 0 0 20px #ffffffeb;
+}
+
+.td {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.circle {
+  width: 14px;
+  height: 14px;
+  border: 1.5px solid #000;
+  border-radius: 50%;
+  position: absolute;
+  top: 30%;
+  left: 0;
+}
+
+.error-msg {
+  font-size: 18px;
+}
+
+.register-container {
+  margin-left: 16px;
+  font-family: "Noto Sans KR", sans-serif;
+  margin: 32px 64px;
+  padding: 8px;
+}
+
+.register-title {
+  display: inline-block;
+  font-weight: 400;
+  font-size: 22px;
+  text-align: center;
+  border-bottom: 1px solid black;
 }
 
 .register-box {
-  margin: 64px 0;
+  display: flex;
 }

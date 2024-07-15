@@ -1,25 +1,24 @@
 import { useState } from "react";
 import { axiosInstance } from "../../api";
-import Items from "./Items";
+import ItemList from "./ItemList";
 
 function SearchItem() {
-  const [inputId, setInputId] = useState('');
+  const [inputId, setInputId] = useState("");
   const [searchedItem, setSearchedItem] = useState(null);
-//   const [isExisting, setIsExisting] = useState(true);
+  const [isError, setIsError] = useState(false);
+
 
   async function searchItem(id) {
     try {
+      setIsError(false);
       const response = await axiosInstance.get(`/items/${id}`);
-      console.log(response.data);
-
-    //   if(!response.status) {
-    //     setIsExisting(false);
-    //   }
+      console.log(response.status);
 
       const resData = response.data;
       setSearchedItem([resData]);
     } catch (error) {
-      //....
+      console.log(error.message);
+      setIsError(true);
     }
   }
 
@@ -31,18 +30,27 @@ function SearchItem() {
   return (
     <>
       <form onSubmit={handleSubmit} className="search-box">
-        <label htmlFor="itemId">Search by ID</label>
-        <input
-          type="number"
-          placeholder="ID로 검색"
-          id="itemId"
-          value={inputId || ''}
-          onChange={(e) => setInputId(e.target.value)}
-          required
-        />
-        <button type="submit" className="search-button">검색</button>
+        <div className="tb">
+          <label htmlFor="itemId">Search by ID</label>
+          <input
+            type="text"
+            id="itemId"
+            value={inputId || ""}
+            onChange={(e) => setInputId(e.target.value)}
+            required
+          />
+
+          <button type="submit" className="search-button">
+            <div className="circle"></div>
+            <span></span>
+          </button>
+        </div>
       </form>
-      <Items title="검색한 상품" items={searchedItem} />
+      <ItemList
+        title="검색 상품"
+        items={searchedItem}
+        error={isError}
+      />
     </>
   );
 }

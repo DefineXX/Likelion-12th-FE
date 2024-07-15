@@ -1,24 +1,39 @@
-import "./items.css";
+import { useState, useEffect } from "react";
+import { axiosInstance } from "../../api/index.js";
+import ItemList from "./ItemList.jsx";
+import SearchItem from "./SearchItem.jsx";
+import RegisterItem from "./RegisterItem.jsx";
+import Header from "../header/Header.jsx";
 
-function Items({ title, items }) {
+function Items() {
+  const [itemList, setItemList] = useState([]);
+  // const [error, setError] = useState();
+
+  useEffect(() => {
+    async function getItemList() {
+      try {
+        const response = await axiosInstance.get("/items");
+        const resData = response.data;
+
+        setItemList(resData);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+
+    getItemList();
+  }, []);
+
+  // if(error) {
+  //   return
+  // }
+
   return (
     <>
-      <section className="item-header">
-        <h2 className="item-header__title">{title}</h2>
-      </section>
-      <section className="item-list">
-        <ul className="item-container">
-          {items &&
-            items.length > 0 &&
-            items.map((item) => (
-              <li key={item.id} className="item-box">
-                <h3 className="item-title">{item.item_name}</h3>
-                <p>{item.stock_quantity}개</p>
-                <p>{item.item_price}원</p>
-              </li>
-            ))}
-        </ul>
-      </section>
+      <Header />
+      <SearchItem />
+      <RegisterItem setItemList={setItemList}/>
+      <ItemList title="상품 목록" items={itemList} />
     </>
   );
 }

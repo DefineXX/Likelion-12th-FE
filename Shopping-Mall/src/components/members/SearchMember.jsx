@@ -26,18 +26,19 @@ function SearchMember() {
   return (
     <>
       <form onSubmit={handleSubmit} className="search-box">
-        <label htmlFor="itemId">Search by ID</label>
-        <input
-          type="number"
-          placeholder="ID로 검색"
-          id="itemId"
-          value={inputId || ""}
-          onChange={(e) => setInputId(e.target.value)}
-          required
-        />
-        <button type="submit" className="search-button">
-          검색
-        </button>
+        <div className="tb">
+          <label htmlFor="itemId">Search by ID</label>
+          <input
+            type="text"
+            id="itemId"
+            value={inputId || ""}
+            onChange={(e) => setInputId(e.target.value)}
+            required
+          />
+          <button type="submit" className="search-button">
+            <div className="circle"></div>
+          </button>
+        </div>
       </form>
       <MemberList title="조회한 회원" members={searchedMember} />
     </>

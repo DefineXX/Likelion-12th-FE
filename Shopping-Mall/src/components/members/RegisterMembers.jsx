@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { axiosInstance } from "../../api";
+import Header from "../header/Header";
 
 function RegisterMembers({ setMemberList }) {
   const [memberName, setMemberName] = useState();
@@ -13,12 +14,10 @@ function RegisterMembers({ setMemberList }) {
       console.log(response.status);
       console.log(response.data);
       return response.data;
-
     } catch (error) {
       console.log(error);
     }
   }
-
 
   async function handleSubmit(event) {
     event.preventDefault();
@@ -34,12 +33,11 @@ function RegisterMembers({ setMemberList }) {
 
     const addedMember = await registerMember(addMember);
 
-    if(addedMember) {
+    if (addedMember) {
       try {
         const response = await axiosInstance.get("/members");
         const addedMemberList = response.data;
         setMemberList(addedMemberList);
-
       } catch (error) {
         console.log(error);
       }
@@ -48,47 +46,61 @@ function RegisterMembers({ setMemberList }) {
 
   return (
     <>
-      <div className="login-box">
-        <h1 className="login_register-title">로그인/회원가입</h1>
-        <form onSubmit={handleSubmit} className="info-box">
-          <label htmlFor="name">이름</label>
-          <input
-            type="text"
-            id="name"
-            value={memberName || ''}
-            onChange={(e) => setMemberName(e.target.value)}
-            required
-          />
+      <Header />
+      <div className="login-box_container">
+        <div className="login-box">
+          <h2 className="login_register-title">Login/Register</h2>
+          <form onSubmit={handleSubmit} className="info-box">
+            <div className="login-info">
+              <input
+                type="text"
+                id="name"
+                placeholder="Name (이름)"
+                value={memberName || ""}
+                onChange={(e) => setMemberName(e.target.value)}
+                required
+              />
+              {/* <label htmlFor="name">Name</label> */}
+            </div>
 
-          <label htmlFor="city">도시</label>
-          <input
-            type="text"
-            id="city"
-            value={memberCity || ''}
-            onChange={(e) => setMemberCity(e.target.value)}
-            required
-          />
+            <div className="login-info login-margin">
+              <input
+                type="text"
+                id="city"
+                placeholder="City (ex.서울특별시)"
+                value={memberCity || ""}
+                onChange={(e) => setMemberCity(e.target.value)}
+                required
+              />
+            </div>
+            <div className="login-info login-margin">
+              <input
+                type="text"
+                id="street"
+                placeholder="Street Address (도로명 주소)"
+                value={memberStreet || ""}
+                onChange={(e) => setMemberStreet(e.target.value)}
+                required
+              />
+            </div>
+            <div className="login-info login-margin">
+              <input
+                type="text"
+                id="postalCode"
+                placeholder="ZIP Code (우편번호)"
+                value={memberPostalCode || ""}
+                onChange={(e) => setMemberPostalCode(e.target.value)}
+                required
+              />
+            </div>
 
-          <label htmlFor="street">도로명 주소</label>
-          <input
-            type="text"
-            id="street"
-            value={memberStreet || ''}
-            onChange={(e) => setMemberStreet(e.target.value)}
-            required
-          />
-
-          <label htmlFor="postalCode">우편번호</label>
-          <input
-            type="text"
-            id="postalCode"
-            value={memberPostalCode || ''}
-            onChange={(e) => setMemberPostalCode(e.target.value)}
-            required
-          />
-
-          <button type="submit">회원가입</button>
-        </form>
+            <div className="register-btn_container">
+              <button type="submit" className="register-btn">
+                회원 가입
+              </button>
+            </div>
+          </form>
+        </div>
       </div>
     </>
   );

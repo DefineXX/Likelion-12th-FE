@@ -8,6 +8,7 @@ a {
   background-color: rgb(255, 178, 178, 0.5);
   align-items: center;
   justify-content: space-between;
+  border-bottom: 2px solid black;
 }
 
 .header-title {
@@ -20,5 +21,19 @@ a {
 .login-btn {
   font-family: "dynapuff", sans-serif;
   font-weight: 400;
-  margin: 0 32px;
+  margin: 0;
+  margin-right: 32px;
 }
+
+.mypage-btn {
+  font-family: "dynapuff", sans-serif;
+  font-weight: 400;
+  margin: 0;
+  margin-right: 32px;
+}
+
+.option-container {
+  display: flex;
+  align-items: center;
+}
+

@@ -1,10 +1,15 @@
 import Header from "../header/Header";
+import MakeOrder from "./MakeOrder";
+import SearchByMemberID from "./SearchByMemberID";
+import SearchOrder from "./SearchOrder";
 
 function Orders() {
   return (
     <>
       <Header />
-      <h1>This is Orders Page!</h1>
+      <MakeOrder />
+      <SearchOrder />
+      <SearchByMemberID />
     </>
   );
 }

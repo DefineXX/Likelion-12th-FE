@@ -1,39 +1,29 @@
-import { useState, useEffect } from "react";
-import { axiosInstance } from "../../api/index.js";
-import Items from "./Items";
-import SearchItem from "./SearchItem.jsx";
-import RegisterItem from "./RegisterItem.jsx";
-import Header from "../header/Header.jsx";
+import "./items.css";
 
-function ItemList() {
-  const [itemList, setItemList] = useState([]);
-  // const [error, setError] = useState();
-
-  useEffect(() => {
-    async function getItemList() {
-      try {
-        const response = await axiosInstance.get("/items");
-        const resData = response.data;
-
-        setItemList(resData);
-      } catch (error) {
-        console.log(error);
-      }
-    }
-
-    getItemList();
-  }, []);
-
-  // if(error) {
-  //   return
-  // }
-
+function ItemList({ title, items, error }) {
   return (
     <>
-      <Header />
-      <SearchItem />
-      <Items title="상품 목록" items={itemList} />
-      <RegisterItem setItemList={setItemList}/>
+      <section className="list-container">
+      <section className="item-header">
+          <h2 className="header__title">{title}</h2>
+        </section>
+        {error && <p className="error-msg">존재하지 않는 상품입니다.</p>}
+        {!error && (
+          <section className="item-list">
+            <ul className="item-container">
+              {items &&
+                items.length > 0 &&
+                items.map((item) => (
+                  <li key={item.id} className="item-box">
+                    <h3 className="item-title">{item.item_name}</h3>
+                    <p>{item.stock_quantity}개</p>
+                    <p>{item.item_price}원</p>
+                  </li>
+                ))}
+            </ul>
+          </section>
+        )}
+      </section>
     </>
   );
 }

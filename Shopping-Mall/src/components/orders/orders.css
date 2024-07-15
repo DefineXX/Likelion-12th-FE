@@ -1,0 +1,156 @@
+.order-container {
+  text-align: center;
+  margin: 36px 0;
+}
+
+.order-list,
+.order-items {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.order-items {
+  list-style: none;
+}
+
+.make-order_title,
+.search-order_title,
+.search-by-member_title {
+  text-align: center;
+  margin: 32px 0;
+}
+
+.make-order_form,
+.search-order_form,
+.search-by-member_form {
+  text-align: center;
+}
+
+.make-order_form input,
+.search-order_form input,
+.search-by-member_form input {
+  padding: 4px;
+}
+
+.search-order_form label,
+.search-order_form input {
+  margin-right: 8px;
+  font-weight: 500;
+}
+
+/* MakeOrder.jsx */
+
+.make-order-area {
+  width: 100%;
+}
+
+.make-order-container,
+.search-order-container,
+.search-by-id-container {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin: 32px auto;
+  border-radius: 2px;
+  background-color: rgb(255, 231, 187, 0.35);
+  box-shadow: 2px 2px 2px 2px rgb(211, 211, 211, 0.8);
+}
+
+.make-order_title,
+.search-order_title {
+  font-family: "Noto Sans KR", sans-serif;
+  font-weight: 500;
+  margin: 32px 0;
+}
+
+.make-order_form {
+  display: flex;
+  flex-direction: column;
+}
+
+.make-order_form input,
+.search-order_form input,
+.search-by-member_form input {
+  background-color: rgba(247, 247, 247, 0.406);
+  border-radius: 2px;
+  border: none;
+  border-bottom: 1.5px solid rgb(63, 63, 63);
+  outline: none;
+  /* transition: 150ms ease-in; */
+}
+
+.make-order_form input:focus,
+.search-order_form input:focus,
+.search-by-member_form input:focus {
+  border-bottom: 2px solid rgb(0, 0, 0);
+}
+
+.make-order__info {
+  margin-bottom: 24px;
+}
+
+.make-order__info label,
+.search-order_form label,
+.search-by-member_form label {
+  font-family: "Titillium Web", sans-serif;
+  margin-right: 12px;
+}
+
+.make-order__info input,
+.search-order_form input,
+.search-by-member_form input {
+  font-size: 14px;
+  padding: 4px;
+  width: 180px;
+  height: 32px;
+}
+
+.make-order__button-container {
+  margin-bottom: 32px;
+}
+
+.make-order_button,
+.search-order_button,
+.search-by-member_button {
+  font-family: "IBM Plex Sans KR", sans-serif;
+  font-weight: 600;
+  background: transparent;
+  padding: 4px 8px;
+  border: 2px solid black;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.make-order_button:hover,
+.search-order_button:hover {
+  background-color: rgb(81, 63, 63);
+  color: whitesmoke;
+  border: 2px solid rgb(183, 182, 182);
+}
+
+/* SearchOrder.jsx */
+
+.search-order_form,
+.search-by-member_form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+/* SearchByMemberID.jsx */
+
+.search-by-member_form {
+  margin: 0;
+}
+
+.search-by-member_form input {
+  margin-right: 12px;
+}
+
+/* OrderList.jsx */
+
+/* .order-list {
+  display: flex;
+} */

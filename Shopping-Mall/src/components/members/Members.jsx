@@ -12,9 +12,8 @@ function Members() {
   return (
     <>
       <Header />
-      <RegisterMembers setMemberList={setMemberList} />
-      <MemberList title="회원 목록" members={memberList} />
       <SearchMember />
+      <MemberList title="회원 목록" members={memberList} />
     </>
   );
 }

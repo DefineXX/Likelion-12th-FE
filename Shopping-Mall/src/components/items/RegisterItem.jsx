@@ -27,50 +27,52 @@ function RegisterItem({ setItemList }) {
 
     const addedItem = await registerItem(newItem);
 
-    if(addedItem) {
-        try {
-            const response = await axiosInstance.get("/items");
-            const addedItemList = response.data;
-            setItemList(addedItemList);
-
-        } catch (error) {
-            console.log(error);
-        }
+    if (addedItem) {
+      try {
+        const response = await axiosInstance.get("/items");
+        const addedItemList = response.data;
+        setItemList(addedItemList);
+      } catch (error) {
+        console.log(error);
+      }
     }
   }
 
   return (
     <>
-      <form className="register-box" onSubmit={handleSubmit}>
-        <label htmlFor="item_name">상품명</label>
-        <input
-          type="text"
-          id="item_name"
-          value={itemName || ""}
-          onChange={(e) => setItemName(e.target.value)}
-          required
-        />
+      <div className="register-container">
+        <h2 className="register-title">상품 등록</h2>
+        <form className="register-box" onSubmit={handleSubmit}>
+          <label htmlFor="item_name">상품명</label>
+          <input
+            type="text"
+            id="item_name"
+            value={itemName || ""}
+            onChange={(e) => setItemName(e.target.value)}
+            required
+          />
 
-        <label htmlFor="stock_quantity">수량</label>
-        <input
-          type="number"
-          id="stock_quantity"
-          value={itemQuantity || ""}
-          onChange={(e) => setItemQuantity(e.target.value)}
-          required
-        />
+          <label htmlFor="stock_quantity">수량</label>
+          <input
+            type="number"
+            id="stock_quantity"
+            value={itemQuantity || ""}
+            onChange={(e) => setItemQuantity(e.target.value)}
+            required
+          />
 
-        <label htmlFor="item_price">판매 가격</label>
-        <input
-          type="number"
-          id="item_price"
-          value={itemPrice || ""}
-          onChange={(e) => setItemPrice(e.target.value)}
-          required
-        />
+          <label htmlFor="item_price">판매 가격</label>
+          <input
+            type="number"
+            id="item_price"
+            value={itemPrice || ""}
+            onChange={(e) => setItemPrice(e.target.value)}
+            required
+          />
 
-        <button type="submit">상품 등록</button>
-      </form>
+          <button type="submit">상품 등록</button>
+        </form>
+      </div>
     </>
   );
 }
